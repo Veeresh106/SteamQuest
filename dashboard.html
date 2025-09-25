@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - STEMQuest</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">🚀 STEMQuest Dashboard</a>
+            <button class="cta-button" id="logoutBtn">Logout</button>
+        </nav>
+    </header>
+    <main class="dashboard-grid">
+        <aside class="dashboard-sidebar">
+            <div class="profile-card">
+                <div class="avatar">🚀</div>
+                <h2 id="username-display">student</h2>
+                <p id="level-display">Level 1 Explorer</p>
+                <div class="xp-bar-container"><div id="xp-bar-fill"></div></div>
+                <span id="xp-text">0 / 200 XP</span>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card"><h4>Quizzes Taken</h4><p id="quizzes-taken">0</p></div>
+                <div class="stat-card"><h4>Avg. Score</h4><p id="avg-score">0%</p></div>
+            </div>
+            <div class="achievements-card">
+                <h3>Achievements</h3>
+                <div class="badge-container">
+                    <div class="badge unearned" title="Maths Master"><i class="fas fa-calculator"></i></div>
+                    <div class="badge unearned" title="Science Whiz"><i class="fas fa-atom"></i></div>
+                    <div class="badge unearned" title="Coding Pro"><i class="fas fa-code"></i></div>
+                </div>
+            </div>
+        </aside>
+        <div class="dashboard-main-content">
+             <section id="class-selection-section">
+                <h1 id="welcome-message">Welcome back!</h1>
+                <p>Please select your class to begin.</p>
+                <div class="class-selector">
+                    <button class="class-btn" data-class="6">Class 6</button>
+                    <button class="class-btn" data-class="7">Class 7</button>
+                    <button class="class-btn" data-class="8">Class 8</button>
+                    <button class="class-btn" data-class="9">Class 9</button>
+                    <button class="class-btn" data-class="10">Class 10</button>
+                </div>
+            </section>
+            <section id="class-content-container" class="hidden">
+                <div class="category-selector">
+                    <button id="showQuizzesBtn" class="category-btn"><i class="fas fa-puzzle-piece"></i><span>View Quizzes</span></button>
+                    <button id="showBooksBtn" class="category-btn"><i class="fas fa-book-open"></i><span>View Study Books</span></button>
+                    <button id="showVideosBtn" class="category-btn"><i class="fas fa-video"></i><span>Watch Videos</span></button>
+                </div>
+                <div id="topic-list-container"></div>
+            </section>
+            <section id="quiz-container" class="hidden"></section>
+        </div>
+    </main>
+    <div class="modal-overlay hidden" id="videoModal">
+        <div class="modal-content video-player-content">
+            <button class="modal-close-btn" id="closeVideoModalBtn">&times;</button>
+            <h2 id="video-title-display"></h2>
+            <div class="video-container">
+                <iframe id="youtube-player" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay hidden" id="bookModal">
+        <div class="modal-content book-reader">
+            <button class="modal-close-btn" id="closeBookModalBtn">&times;</button>
+            <h2 id="book-title-display"></h2>
+            <div id="page-content-display"></div>
+            <div class="pagination">
+                <button class="cta-button" id="prevPageBtn">&laquo; Previous</button>
+                <span>Page <span id="current-page-num">1</span> of <span id="total-page-num">10</span></span>
+                <button class="cta-button" id="nextPageBtn">Next &raquo;</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay hidden" id="scoreModal">
+        <div class="modal-content score-modal-content">
+            <div class="score-icon">🎉</div>
+            <h2>Quiz Complete!</h2>
+            <p class="final-score" id="final-score">0%</p>
+            <button class="cta-button" id="closeScoreModalBtn">Continue</button>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
